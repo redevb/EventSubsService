@@ -9,9 +9,9 @@ import java.time.LocalDateTime;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-public class Event {
+public class EventSubscription {
     private long id;
-    private String name;
-    private String description;
-    private LocalDateTime dateTime;
+    private long eventId;
+    private String email;
+    private LocalDateTime dateTimeRegistration;
 }

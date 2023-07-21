@@ -1,17 +1,15 @@
-package kg.attractor.eventsubsservice.model;
+package kg.attractor.eventsubsservice.dto;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-import java.time.LocalDateTime;
-
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-public class Event {
+public class EventDTO {
     private long id;
     private String name;
     private String description;
-    private LocalDateTime dateTime;
+    private String dateTime;
 }
