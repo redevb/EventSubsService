@@ -1,0 +1,61 @@
+databaseChangeLog:
+  - changeSet:
+      id: create_events
+      author: admin
+      changes:
+        - createTable:
+            tableName: events
+            columns:
+              - column:
+                  name: id
+                  type: long
+                  autoIncrement: true
+                  constraints:
+                    primaryKey: true
+                    nullable: false
+              - column:
+                  name: name
+                  type: VARCHAR(255)
+                  constraints:
+                    nullable: false
+              - column:
+                  name: description
+                  type: VARCHAR(1000)
+                  constraints:
+                    nullable: false
+              - column:
+                  name: date_time
+                  type: timestamp
+                  constraints:
+                    nullable: false
+
+  - changeSet:
+      id: create_event_subs
+      author: admin
+      changes:
+        - createTable:
+            tableName: event_subs
+            columns:
+              - column:
+                  name: id
+                  type: long
+                  autoIncrement: true
+                  constraints:
+                    primaryKey: true
+                    nullable: false
+              - column:
+                  name: event_id
+                  type: long
+                  constraints:
+                    references: events(id)
+                    foreignKeyName: FK_EVENT_SUBS_EVENTS
+              - column:
+                  name: email
+                  type: VARCHAR(255)
+                  constraints:
+                    nullable: false
+              - column:
+                  name: date_time_registration
+                  type: timestamp
+                  constraints:
+                    nullable: false
